@@ -10,5 +10,10 @@ namespace Cade.Android.Services
         {
             throw new System.NotImplementedException("Not implemented on Android yet");
         }
+
+        public void GetFile()
+        {
+            throw new System.NotImplementedException("Not implemented on Android yet");
+        }
     }
 }

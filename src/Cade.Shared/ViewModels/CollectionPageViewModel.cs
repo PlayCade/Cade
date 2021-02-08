@@ -29,7 +29,7 @@ namespace Cade.ViewModels
         {
             PlayGameCommand = new Command(async () =>
             {
-                DependencyService.Get<IFileSystemService>().OpenDirectory();
+                DependencyService.Get<IFileSystemService>().GetFile();
             });
         }
     }
