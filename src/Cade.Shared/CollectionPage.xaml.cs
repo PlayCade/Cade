@@ -1,16 +1,18 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cade.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Cade
 {
-    public partial class MainPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CollectionPage : ContentPage
     {
-        public MainPage()
+        public CollectionPage()
         {
             InitializeComponent();
         }

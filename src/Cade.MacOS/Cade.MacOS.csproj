@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="..\packages\Xamarin.Forms.4.8.0.1534\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.4.8.0.1534\build\Xamarin.Forms.props')" />
+    <Import Project="..\packages\Xamarin.Forms.5.0.0.1931\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.5.0.0.1931\build\Xamarin.Forms.props')" />
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-        <ProjectGuid>{7E041AAB-ECA8-424E-A25D-07E982CCE8D1}</ProjectGuid>
+        <ProjectGuid>{28580176-3D5F-4C5F-880A-50193B8EE100}</ProjectGuid>
         <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <OutputType>Exe</OutputType>
         <RootNamespace>Cade.MacOS</RootNamespace>
@@ -46,18 +46,28 @@
         <PlatformTarget>x86</PlatformTarget>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="OpenTK" />
         <Reference Include="System" />
         <Reference Include="System.Core" />
+        <Reference Include="System.Numerics.Vectors" />
+        <Reference Include="Xamarin.Essentials, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Xamarin.Essentials.1.6.1\lib\xamarinmac20\Xamarin.Essentials.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\packages\Xamarin.Forms.4.8.0.1534\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
+          <HintPath>..\packages\Xamarin.Forms.5.0.0.1931\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Xamarin.Forms.Platform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\packages\Xamarin.Forms.4.8.0.1534\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
+          <HintPath>..\packages\Xamarin.Forms.5.0.0.1931\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Xamarin.Forms.Platform.macOS, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Xamarin.Forms.5.0.0.1931\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\packages\Xamarin.Forms.4.8.0.1534\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
+          <HintPath>..\packages\Xamarin.Forms.5.0.0.1931\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Xamarin.Mac" />
@@ -76,6 +86,7 @@
     <ItemGroup>
         <Compile Include="Main.cs" />
         <Compile Include="AppDelegate.cs" />
+        <Compile Include="Services\MacosFileSystemService.cs" />
         <Compile Include="ViewController.cs" />
         <Compile Include="ViewController.designer.cs">
             <DependentUpon>ViewController.cs</DependentUpon>
@@ -85,9 +96,9 @@
         <InterfaceDefinition Include="Main.storyboard" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Cade.Library\Cade.Library.csproj">
-        <Project>{64e25278-3b76-4abb-98c0-481f2917480c}</Project>
-        <Name>Cade.Library</Name>
+      <ProjectReference Include="..\Cade.Shared\Cade.Shared.csproj">
+        <Project>{d299d702-7fd4-420a-8732-56f32772434b}</Project>
+        <Name>Cade.Shared</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
@@ -95,8 +106,8 @@
       <PropertyGroup>
         <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
       </PropertyGroup>
-      <Error Condition="!Exists('..\packages\Xamarin.Forms.4.8.0.1534\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.4.8.0.1534\build\Xamarin.Forms.props'))" />
-      <Error Condition="!Exists('..\packages\Xamarin.Forms.4.8.0.1534\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.4.8.0.1534\build\Xamarin.Forms.targets'))" />
+      <Error Condition="!Exists('..\packages\Xamarin.Forms.5.0.0.1931\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.5.0.0.1931\build\Xamarin.Forms.props'))" />
+      <Error Condition="!Exists('..\packages\Xamarin.Forms.5.0.0.1931\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.5.0.0.1931\build\Xamarin.Forms.targets'))" />
     </Target>
-    <Import Project="..\packages\Xamarin.Forms.4.8.0.1534\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.8.0.1534\build\Xamarin.Forms.targets')" />
+    <Import Project="..\packages\Xamarin.Forms.5.0.0.1931\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.5.0.0.1931\build\Xamarin.Forms.targets')" />
 </Project>

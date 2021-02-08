@@ -8,18 +8,16 @@ namespace Cade.MacOS
     [Register("AppDelegate")]
     public class AppDelegate : FormsApplicationDelegate
     {
-        private NSWindow _window;
+        private NSWindow window;
         public AppDelegate()
         {
             var style = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
 
             var rect = new CoreGraphics.CGRect(200, 1000, 1024, 768);
-            _window = new NSWindow(rect, style, NSBackingStore.Buffered, false);
-            _window.Title = "Xamarin.Forms on Mac!"; // choose your own Title here
-            _window.TitleVisibility = NSWindowTitleVisibility.Hidden;
+            window = new NSWindow(rect, style, NSBackingStore.Buffered, false);
+            window.Title = "Xamarin.Forms on Mac!"; // choose your own Title here
+            window.TitleVisibility = NSWindowTitleVisibility.Hidden;
         }
-        
-        public override NSWindow MainWindow => _window;
 
         public override void DidFinishLaunching(NSNotification notification)
         {
@@ -27,6 +25,8 @@ namespace Cade.MacOS
             LoadApplication(new App());
             base.DidFinishLaunching(notification);
         }
+
+        public override NSWindow MainWindow => window;
 
         public override void WillTerminate(NSNotification notification)
         {
